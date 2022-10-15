@@ -17,3 +17,10 @@ const getData = (url) =>
 getData('https://jsonplaceholder.typicode.com/todos/1')
     .then(data => console.log(data))
     .catch(error => console.log(error.message))
+
+
+
+// fetch('https://jsonplaceholder.typicode.com/todos/1')
+//     .then(response => response.json())
+//     .then(json => console.log(json))
+//     .catch(error => console.error(error))

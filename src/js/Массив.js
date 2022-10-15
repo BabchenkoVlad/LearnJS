@@ -21,7 +21,22 @@ const removedelement2 = myArray.shift() // присвоение удаленно
 console.log(myArray[1])
 
 
+
 // деструктуризация массивов
 // const [ 1, 2 ] = myArray
 // const [ 3 ] = myArray
 // console.log(1)    -  1
+
+
+
+// перебор массива всегда через forEach
+const myArray = [true, 10, 'abc', null]
+
+// тоже с помощью форич. Превращая в массив
+Object.keys(myObject).forEach(key => {
+    console.log(key, myObject[key])
+})
+
+Object.values(myObject).forEach(value => {
+    console.log(value)
+})
