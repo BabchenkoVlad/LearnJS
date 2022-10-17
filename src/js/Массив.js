@@ -1,19 +1,38 @@
 const myArray = [1, 2, 3]
-console.log(myArray)
 
-const myArray2 = new Array(1, 2, 3)
-console.log(myArray2)
 
-myArray[1] = 'abc' // изменение
-myArray[3] = true // добавление
+// console.log(myArray)
 
-myArray.push(4) // добавление в конец массива
-myArray.pop() // удаление в конце массива
-myArray.unshift(true) // добавление в начало массива
-myArray.shift() // удаление в начале массива
+// const myArray2 = new Array(1, 2, 3)
+// console.log(myArray2)
 
-myArray.forEach(el => console.log(el * 2))  // перебор всего массива, не меняя его
-const newArray = myArray.map(el => el * 3)  // перебор всего массива, с созданием нового, не меняя старый
+// myArray[1] = 'abc' // изменение
+// myArray[3] = true // добавление
+
+// myArray.push(4) // добавление в конец массива
+// myArray.pop() // удаление в конце массива
+// myArray.unshift(true) // добавление в начало массива
+// myArray.shift() // удаление в начале массива
+
+myArray.sort(compareNum); // сортировка массива по возрастанию
+function compareNum(a, b) {
+    return a - b;
+}
+
+// myArray.forEach(el => console.log(el * 2))  // перебор всего массива, не меняя его
+// const newArray = myArray.map(el => el * 3)  // перебор всего массива, с созданием нового, не меняя старый
+
+
+myArray.forEach(function(item, i, myArray) {
+    console.log(`${i}: ${item} внутри массива ${myArray}`)
+});
+
+for (let value of myArray) {
+    // можно использовать brake и continue
+}
+
+const str
+
 
 const removedelement = myArray.pop() // присвоение удаленного єлемента
 const removedelement2 = myArray.shift() // присвоение удаленного єлемента
