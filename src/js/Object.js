@@ -18,7 +18,7 @@ const options = {
     colors: {
         border: 'black',
         bg: 'red'
-    }
+    },
     makeTest: function() {
         console.log('Test');
     }

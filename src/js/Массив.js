@@ -1,4 +1,4 @@
-const myArray = [1, 2, 3]
+const myArray = [1, 2, 3];
 
 
 // console.log(myArray)
@@ -31,7 +31,7 @@ for (let value of myArray) {
     // можно использовать brake и continue
 }
 
-const str
+const str = '';
 
 
 const removedelement = myArray.pop() // присвоение удаленного єлемента
