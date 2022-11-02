@@ -62,4 +62,40 @@ for (let node of document.body.childNodes) {
     console.log(node);
 }
 
+///////////////////////////////////////////////////////
+const btns2 = document.querySelectorAll('button'),
+    wrapper2 = document.querySelector('.btn-block');
 
+// btns2[0].classList.length; // количество классов
+// btns2[0].classList.item(0); // клас под номером 1
+// btns2[0].classList.add('red'); // добавить класс
+// btns2[0].classList.remove('blue'); // удалить
+// btns2[0].classList.toggle('blue'); // добавил/удалил переключатель
+
+// if (btns2[1].classList.contains('red')) {
+//     console.log
+// }
+
+// dobavlenie udalenie klasa activnosti
+btns2[0].addEventListener('click', () => {
+    // if (!btns2[1].classList.contains('red')) {
+    //     btns[1].classList.add('red');
+    // } else {
+    //     btns[1].classList.remove('red');
+    // }
+
+    // 2ou variant
+    btns2[1].classList.toggle('red');
+});
+
+wrapper2.addEventListener('click', (event) => {
+    if (event.target && event.target.tagName == 'BUTTON') {
+        console.log('Hello');
+    }
+});
+
+
+// dobavlenie knopki
+const btn2 = document.createElement('button');
+btn2.classList.add('red');
+wrapper2.append(btn2);
