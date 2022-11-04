@@ -18,4 +18,11 @@ let alex = { name: 'alex' };
 cacheUser(lena);
 cacheUser(alex);
 
+lena = null;
 
+console.log(cache.has(lena));
+console.log(cache.has(alex));
+
+
+// WeakSet
+// add, has, delete
