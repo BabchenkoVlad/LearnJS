@@ -1,7 +1,6 @@
 // модальное окно
 const modalTrigger = document.querySelectorAll('[data-modal]'),
-      modal = document.querySelector('.modal'),
-      modalCloseBtn = document.querySelector('[data-close]');
+      modal = document.querySelector('.modal');
 
 function openModal() {
   modal.classList.add('show');
@@ -24,10 +23,8 @@ function closeModal() {
   document.body.style.overflow = '';
 }
 
-modalCloseBtn.addEventListener('click', closeModal);
-
 modal.addEventListener('click', (e) => {
-  if (e.target === modal) {
+  if (e.target === modal || e.target.getAttribut('data-close') == '') {
     closeModal();
   }
 });

@@ -11,7 +11,7 @@ echo var_dump($_POST);
 const forms = document.querySelectorAll('form');
 
 const massage = {
-  loading: 'Zagruzka',
+  loading: '../spinner.svg',
   success: 'Spasibo! mi s vami svyagemsya',
   failure: 'chto to poshlo ne tak'
 };
@@ -24,10 +24,13 @@ function postData(form) {
   form.querySelectorAll('submit', (e) => {
     e.preventDefault();
 
-    const statusMassage = document.createElement('div');
-    statusMassage.classList.add('status');
-    statusMassage.textContent = massage.loading;
-    form.append(statusMassage);
+    const statusMassage = document.createElement('img');
+    statusMassage.src = message.loading;
+    statusMassage.style.cssText = `
+      display: block;
+      margin: 0 auto;
+    `;
+    form.insertAdjacentElement('afterend', statusMassage);
 
     const request = new XMLHttpRequest();
     request.open('POST', 'server.php');
