@@ -59,3 +59,56 @@ Object.keys(myObject).forEach(key => {
 Object.values(myObject).forEach(value => {
     console.log(value)
 })
+
+
+// ///////////////////////////////////////
+// метод перебора массивов
+
+// filter - фильтрует масив
+const names = ['123', '2334', '24445', '142315'];
+
+const shortNames = names.filter((name) => {
+    return name.length < 5;
+});
+
+console.log(shortNames);
+
+// map - взять исходный массив и изменить каждый элемент внутри него
+const answers = ['IvAn', 'ANNa', 'hElLo'];
+
+const result = answers.map(item => item.toLocaleLowerCase());
+console.log(result);
+
+// every - все /some - какойто - перебор массивов по параметру, ответ булиновое значение
+
+const some = ['123', 'sdfs', 'dgdfg', 1];
+
+console.log(some.some(item => typeof (item) === 'number'));
+console.log(some.every(item => typeof (item) === 'number'));
+
+// reduce - для сбора массива в одно целое. будь это число или строка
+
+const arr = [4, 5, 6, 2],
+    sumArr = arr.reduce((sum, curr) => sum + curr, 0);
+
+console.log(sumArr);
+
+const str = ['ASD', 'FGH', 'ZXC', 'VBN'],
+    sumStr = str.reduce((sum, curr) => `${sum}, ${curr}`);
+
+console.log(sumStr);
+
+
+////////////////////////////////////////////////////////
+const obj = {
+    ivan: 'persone',
+    ann: 'persone',
+    dog: 'animal',
+    cat: 'animal'
+};
+
+const newArr = Object.entries(obj)
+    .filter(item => item[1] === 'persone')
+    .map(item => item[0]);
+
+console.log(newArr);

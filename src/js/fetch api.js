@@ -1,9 +1,13 @@
-
-
-//fetch('https://jsonplaceholder.typicode.com/todos/1')
-//  .then(response => response.json())
-//  .then(json => console.log(json))
-//  .catch(error => console.error(error))
+fetch('https://jsonplaceholder.typicode.com/posts', {
+    method: "POST",
+    body: JSON.stringify({ name: 'Alex' }),
+    headers: {
+        'Content-type': 'aplication/json'
+    }
+})
+    .then(response => response.json())
+    .then(json => console.log(json))
+    .catch(error => console.error(error));
 
 
 const getData = (url) =>
@@ -16,7 +20,7 @@ const getData = (url) =>
 
 getData('https://jsonplaceholder.typicode.com/todos/1')
     .then(data => console.log(data))
-    .catch(error => console.log(error.message))
+    .catch(error => console.log(error.message));
 
 
 
@@ -24,3 +28,13 @@ getData('https://jsonplaceholder.typicode.com/todos/1')
 //     .then(response => response.json())
 //     .then(json => console.log(json))
 //     .catch(error => console.error(error))
+
+//////////////////////////////////////////////////////////////
+// для проекта
+
+
+
+
+
+
+

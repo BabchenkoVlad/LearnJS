@@ -1,7 +1,7 @@
 // в корне проекта server.php
 <? php
 // poluchenie JSON na PHP
-// $_POST = json_decode(file_get_contents("php://input"), true);
+$_POST = json_decode(file_get_contents("php://input"), true);
 echo var_dump($_POST);
 
 
@@ -32,8 +32,12 @@ function postData(form) {
     `;
     form.insertAdjacentElement('afterend', statusMassage);
 
-    const request = new XMLHttpRequest();
-    request.open('POST', 'server.php');
+    // старый вариант отправки запросов на сервер
+    // const request = new XMLHttpRequest();
+    // request.open('POST', 'server.php');
+    
+    
+
     // XMLHttpRequest + multipart/form-data = NE OTPRAVIT NA SERVER
     // request.setRequestHeader('Content-type', 'multipart/form-data');
     // dlya JSON zaprosa
@@ -41,25 +45,39 @@ function postData(form) {
     const formData = new FormData(form);
 
     // JSON
-    // const object = {};
-    // formData.forEach(function (value, key) {
-    //   object[key] = value;
-    // });
-    // const json = JSON.stringify(object);
-    // request.send(json);
-
-    request.send(formData);
-
-    request.addEventListener('load', () => {
-      if (request.status === 200) {
-        console.log(request.response);
-        showThanksModal(massage.success);
-        form.reset();
-        statusMassage.remove();
-      } else {
-        showThanksModal(massage.failure);
-      }
+    const object = {};
+    formData.forEach(function (value, key) {
+      object[key] = value;
     });
+
+    fetch('server.php', {
+      method: "POST",
+      body: JSON.stringify(object),
+      headers: {
+        'Content-type': 'aplication/json'
+    }
+    }).then(data => {
+      data.text();
+    }).then(data => {
+      console.log(data);
+      showThanksModal(massage.success);
+      statusMassage.remove();
+    }).catch(() => {
+      showThanksModal(massage.failure);
+    }).finally(() => {
+      form.reset();
+    });
+
+    // request.addEventListener('load', () => {
+    //   if (request.status === 200) {
+    //     console.log(request.response);
+    //     showThanksModal(massage.success);
+    //     form.reset();
+    //     statusMassage.remove();
+    //   } else {
+    //     showThanksModal(massage.failure);
+    //   }
+    // });
   });
 }
 
@@ -86,5 +104,4 @@ function showThanksModal(message) {
     prevModalDialog.classList.remove('hide');
     closeModal();
   }, 4000);
-
 }
