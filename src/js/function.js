@@ -256,13 +256,17 @@ const films = [
     }
 ];
 
-function showGoodFilms(arr) {
-    
-}
+// function showGoodFilms(arr) {
+//     return arr.filter(film => film.rating >= 8);
+// }
+// console.log(showGoodFilms(films));
+
 
 function showListOfFilms(arr) {
-    
+    return arr.reduce((name, rating) => `${typeof(name) === 'object' ? name.name : name}, ${rating.name}`);
 }
+console.log(showListOfFilms(films));
+
 
 function setFilmsIds(arr) {
 
